@@ -29,6 +29,8 @@ namespace adventofcode
                         FindValidPasswordsPartOne(lines);
                         FindValidPasswordsPartTwo(lines);
                         break;
+                    case 3:
+                        break;
                     default:
                         Console.WriteLine("An invalid puzzle number was selected.");
                         break;

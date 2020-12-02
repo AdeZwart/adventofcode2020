@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T4RlQ4VFSVwGCt1SwVHCjWvlrBpHvgnwBo7NlrQh4G3lxhkPV2lQyuZnjX1fYYmkeWLVdhfl7rrmbxJf3qCmIw==",
+  "dgSpecHash": "SQcSbPtLL2gaNXhB42c3IpwJUBhfKbNjRNsx+Dsv47Ua6dfT1w5+JUuf0y4JSLCs4kTwa5sdEzsyAR8+KE1n+A==",
   "success": true,
-  "projectFilePath": "D:\\git\\adventofcode\\adventofcode\\adventofcode.csproj",
+  "projectFilePath": "D:\\git\\adventofcode2020\\adventofcode\\adventofcode.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

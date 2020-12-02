@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git\\adventofcode\\adventofcode\\adventofcode.csproj": {}
+    "D:\\git\\adventofcode2020\\adventofcode\\adventofcode.csproj": {}
   },
   "projects": {
-    "D:\\git\\adventofcode\\adventofcode\\adventofcode.csproj": {
+    "D:\\git\\adventofcode2020\\adventofcode\\adventofcode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git\\adventofcode\\adventofcode\\adventofcode.csproj",
+        "projectUniqueName": "D:\\git\\adventofcode2020\\adventofcode\\adventofcode.csproj",
         "projectName": "adventofcode",
-        "projectPath": "D:\\git\\adventofcode\\adventofcode\\adventofcode.csproj",
+        "projectPath": "D:\\git\\adventofcode2020\\adventofcode\\adventofcode.csproj",
         "packagesPath": "C:\\Users\\a.dezwart\\.nuget\\packages\\",
-        "outputPath": "D:\\git\\adventofcode\\adventofcode\\obj\\",
+        "outputPath": "D:\\git\\adventofcode2020\\adventofcode\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
