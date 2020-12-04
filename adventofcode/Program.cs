@@ -29,9 +29,12 @@ namespace adventofcode
                         Day2.FindValidPasswordsPartTwo(lines);
                         break;
                     case 3:
-                        //Day3.PartOne(lines);
-                        //Day3.PartTwo(lines);
+                        Day3.PartOne(lines);
+                        Day3.PartTwo(lines);
                         break;
+                    case 4:
+                        Day4.PartOne(lines);
+                        Day4.PartTwo(lines);
                     default:
                         Console.WriteLine("An invalid puzzle number was selected.\r\n");
                         break;
