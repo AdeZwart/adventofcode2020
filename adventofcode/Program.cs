@@ -24,26 +24,36 @@ namespace adventofcode
                     case 1:
                         Console.WriteLine("Puzzle 1 was not implemented\r\n");
                         break;
+
                     case 2:
                         Day2.FindValidPasswordsPartOne(lines);
                         Day2.FindValidPasswordsPartTwo(lines);
                         break;
+
                     case 3:
                         Day3.PartOne(lines);
                         Day3.PartTwo(lines);
                         break;
+
                     case 4:
                         Day4.PartOne(lines);
                         Day4.PartTwo(lines);
                         break;
+
                     case 5:
                         Day5.PartOne(lines);
                         Day5.PartTwo(lines);
                         break;
+
+                    case 6:
+                        Day6.PartOne(lines);
+                        Day6.PartTwo(lines);
+                        break;                   
+
                     default:
                         Console.WriteLine("An invalid puzzle number was selected.\r\n");
                         break;
-                }
+                }           
             }
 
             Console.WriteLine("\nFINISHED");
