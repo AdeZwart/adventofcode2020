@@ -6,7 +6,7 @@ namespace adventofcode.Models
     {        
         public string BagColor { get; set; }
         public List<KeyValuePair<string, int>> InnerBags { get; set; }        
-        public bool CanContainShinyGold { get; set; }
+        public bool CanContainShinyGoldBag { get; set; }
 
         public override string ToString()
         {
@@ -16,7 +16,7 @@ namespace adventofcode.Models
                 innerBagString = (string.IsNullOrWhiteSpace(innerBagString)) ? $"{innerBag.Key}:{innerBag.Value}" : $"{innerBagString},{innerBag.Key}:{innerBag.Value}";
             }
 
-            return $"{BagColor}|{innerBagString}|{CanContainShinyGold}";
+            return $"{BagColor}|{innerBagString}|{CanContainShinyGoldBag}";
         }
     }
 }

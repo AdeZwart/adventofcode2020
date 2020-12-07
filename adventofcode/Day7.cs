@@ -35,10 +35,10 @@ namespace adventofcode
 
             foreach (var bag in coloredBags)
             {
-                bag.CanContainShinyGold = CanContainShinyGoldBag(bag, coloredBags);
+                bag.CanContainShinyGoldBag = CanContainShinyGoldBag(bag, coloredBags);
             }
 
-            return coloredBags.Count(b => b.CanContainShinyGold);
+            return coloredBags.Count(b => b.CanContainShinyGoldBag);
         }
 
         private static int GetIndividualBagsInsideShinyGoldBag(string[] fileLines)
