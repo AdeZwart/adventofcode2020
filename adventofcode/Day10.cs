@@ -44,7 +44,9 @@ namespace adventofcode
         {
             Console.WriteLine("========== AdventOfCode Day 10 - Part Two ==========");
 
-            
+            var sortedAdapters = GetSortedAdapters(fileLines);
+
+            var arrangementCount = GetAmountOfWorkingCombinations(sortedAdapters);
 
             Console.WriteLine($"A total of '{arrangementCount}' distinct arrangements are available.\r\n");
         }
@@ -65,9 +67,30 @@ namespace adventofcode
             adapters.Sort();
 
             return adapters;
+        }        
+
+        private static int GetAmountOfWorkingCombinations(List<int> sortedAdapters, int start = 0, int workingCombinationCount = 0)
+        {           
+            return workingCombinationCount;
         }
 
-
+        private static long Reddit(string[] input)
+        {
+            var joltages = input.Select(x => int.Parse(x)).Append(0).OrderBy(x => x).ToArray();
+            var steps = new long[joltages.Length];
+            steps[0] = 1;
+            foreach (var i in Enumerable.Range(1, joltages.Length - 1))
+            {
+                foreach (var j in Enumerable.Range(0, i))
+                {
+                    if (joltages[i] - joltages[j] <= 3)
+                    {
+                        steps[i] += steps[j];
+                    }
+                }
+            }
+            return steps.Last();
+        }
 
         private static bool IsJoltStepInRange(int currentJolt, int nextJolt)
         {
