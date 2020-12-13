@@ -11,10 +11,10 @@ namespace adventofcode
         static void Main(string[] args)
         {
             var directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-            var files = Directory.GetFiles(directory, $"*{INPUTTXT}");
+            var inputFiles = Directory.GetFiles(directory, $"*{INPUTTXT}");
 
-            Console.Write($"Enter a number between 1 and {files.Length} to solve the puzzle for that day:\r\n");
-            if (int.TryParse(Console.ReadLine(), out var puzzleIndex) && puzzleIndex > 0 && puzzleIndex <= files.Length)
+            Console.Write($"Enter a number between 1 and {inputFiles.Length} to solve the puzzle for that day:\r\n");
+            if (int.TryParse(Console.ReadLine(), out var puzzleIndex) && puzzleIndex > 0 && puzzleIndex <= inputFiles.Length)
             {
                 var inputFile = $"{PUZZLE}{puzzleIndex}{INPUTTXT}";
                 var lines = File.ReadAllLines($"{directory}\\{inputFile}");
@@ -68,6 +68,21 @@ namespace adventofcode
                     case 10:
                         Day10.PartOne(lines);
                         Day10.PartTwo(lines);
+                        break;
+
+                    case 11:
+                        Day11.PartOne(lines);
+                        Day11.PartTwo(lines);
+                        break;
+
+                    case 12:
+                        Day12.PartOne(lines);
+                        Day12.PartTwo(lines);
+                        break;
+
+                    case 13:
+                        Day13.PartOne(lines);
+                        Day13.PartTwo(lines);
                         break;
 
                     default:
