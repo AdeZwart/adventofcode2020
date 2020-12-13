@@ -13,17 +13,18 @@ namespace adventofcode
         {
             stopWatch.Restart();
             Console.WriteLine("========== AdventOfCode Day 13 - Part One ==========");
-            
+
             int.TryParse(fileLines.First(), out var firstPossibleDepartTimestamp);
 
             var (busId, actualDepartTime) = FindFirstDepartingBus(firstPossibleDepartTimestamp, fileLines.Last());
 
             var waitTime = actualDepartTime - firstPossibleDepartTimestamp;
 
-            Console.Write($"Result {busId * waitTime}");
+            Console.Write($"Result: {busId * waitTime}\r\n");
             stopWatch.Stop();
-            Console.WriteLine($"Answer found in {stopWatch.ElapsedMilliseconds} ms.\r\n");
+            Console.WriteLine($"=> found in {stopWatch.Elapsed:mm\\:ss\\:ffff}\r\n");
         }
+
         public static void PartTwo(string[] fileLines)
         {
             stopWatch.Restart();
@@ -31,9 +32,9 @@ namespace adventofcode
 
 
 
-            Console.Write($"");
+            Console.Write($"Result: \r\n");
             stopWatch.Stop();
-            Console.WriteLine($"Answer found in {stopWatch.ElapsedMilliseconds} ms.\r\n");
+            Console.WriteLine($"=> found in {stopWatch.Elapsed:mm\\:ss\\:ffff}\r\n");
         }
 
         private static KeyValuePair<int, int> FindFirstDepartingBus(int FirstPossibleDepartTimestamp, string shuttleBusSchedule)
@@ -49,9 +50,6 @@ namespace adventofcode
                     shuttles.Add(new KeyValuePair<int, int>(busId, Convert.ToInt32(iterations * busId)));
                 }
             }
-
-            var a = shuttles.OrderBy(kv => kv.Value);
-            var b = a.First(s => s.Value >= FirstPossibleDepartTimestamp);
 
             return shuttles.OrderBy(kv => kv.Value).First(s => s.Value >= FirstPossibleDepartTimestamp);
         }
