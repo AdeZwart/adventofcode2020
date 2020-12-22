@@ -120,6 +120,11 @@ namespace adventofcode
                         Day20.PartTwo(lines);
                         break;
 
+                    case 21:
+                        Day21.PartOne(lines);
+                        Day21.PartTwo(lines);
+                        break;
+
                     default:
                         Console.WriteLine("An invalid puzzle number was selected.\r\n");
                         break;
