@@ -28,29 +28,40 @@ namespace adventofcode
             stopWatch.Restart();
             Console.WriteLine("========== AdventOfCode Day 23 - Part Two ==========");
 
+            var cups = input.First().Where(c => char.IsDigit(c)).Select(i => int.Parse(i.ToString())).ToList();
 
-            var result = "";
+            var startFrom = cups.Max() + 1;
+            var length = (1000000 - cups.Count) + 1;
+
+            cups.AddRange(Enumerable.Range(startFrom, length));
+
+            var result = MoveCups(cups, 10000000, true);
 
             Console.WriteLine($"The answer is: {result}");
             stopWatch.Stop();
             Console.WriteLine($"=> found in {stopWatch.Elapsed:mm\\:ss\\:ffff}\r\n");
         }
 
-        private static string MoveCups(IEnumerable<string> input, int moveCount)
+        private static string MoveCups(IEnumerable<string> input, int moveCount, bool b = false)
         {
             var cups = input.First().Where(c => char.IsDigit(c)).Select(i => int.Parse(i.ToString())).ToList();
+            return MoveCups(cups, moveCount, b);
+        }
 
+        private static string MoveCups(List<int> cups, int moveCount, bool b = false)
+        {            
             /// The crab selects a new current cup: the cup which is immediately clockwise of the current cup.
             foreach (var move in Enumerable.Range(0, moveCount))
             {
                 // Reset to start in at the beginning of the circle again
                 var actualMove = move % cups.Count;
-
+                var currentCup = cups[actualMove];
                 var oneIndexedMove = actualMove + 1;
 
                 Console.WriteLine($"-- move {move + 1} --");
-                var currentCup = cups[actualMove];
+#if DEBUG
                 Console.WriteLine($"cups: {string.Join(" ", cups.Take(actualMove))} ({currentCup}) {string.Join(" ", cups.Skip(oneIndexedMove))}");
+#endif
 
                 var pickedUp = new int[pickUpLength];
                 /// The crab picks up the three cups that are immediately clockwise of the current cup
@@ -74,7 +85,9 @@ namespace adventofcode
                     cups.RemoveRange(oneIndexedMove, pickUpLength);
                 }
 
+#if DEBUG
                 Console.WriteLine($"pick up: {string.Join(", ", pickedUp)}");
+#endif
 
                 /// The crab selects a destination cup: the cup with a label equal to the current cup's label minus one. 
                 /// If this would select one of the cups that was just picked up, 
@@ -82,8 +95,9 @@ namespace adventofcode
                 /// If at any point in this process the value goes below the lowest value on any cup's label, 
                 /// it wraps around to the highest value on any cup's label instead.
                 var destination = GetDestination(cups, actualMove);
+#if DEBUG
                 Console.WriteLine($"destination: {destination}");
-
+#endif
                 /// The crab places the cups it just picked up so that they are immediately clockwise of the destination cup. 
                 /// They keep the same order as when they were picked up. 
                 var insertIndex = cups.FindIndex(c => c.Equals(destination)) + 1;
@@ -97,9 +111,16 @@ namespace adventofcode
                     cups.AddRange(cups.Take(diff));
                     cups.RemoveRange(0, diff);
                 }
-
+#if DEBUG
                 Console.WriteLine($"\r");
-            }
+#endif
+
+                if (b && move.Equals(moveCount))
+                {
+                    var result = cups.Skip(oneIndexedMove).Take(2);
+                    return (result.First() * result.Last()).ToString();
+                }
+            }            
 
             while (!cups.First().Equals(1))
             {
